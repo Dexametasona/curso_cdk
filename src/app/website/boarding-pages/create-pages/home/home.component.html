@@ -1,0 +1,52 @@
+<div class="col-span-4 mb-4">
+  <p class="text-2xl font-medium">Demo Board</p>
+</div>
+<div
+  cdkDropList
+  (cdkDropListDropped)="drop($event)"
+  class="rounded-md mx-3 bg-slate-200 p-2 shadow-md"
+>
+  <h3 class="mb-2 font-bold">To Do</h3>
+  <div class="flex flex-col space-y-2">
+    <span
+      cdkDrag
+      class="rounded-md bg-white p-1 shadow-md cursor-pointer hover:bg-slate-400"
+      *ngFor="let task of taskToDo"
+      >{{task.title}}</span
+    >
+  </div>
+</div>
+<div class="rounded-md mx-3 bg-slate-200 p-2 shadow-md">
+  <h3 class="mb-2 font-bold">Doing</h3>
+  <div class="flex flex-col space-y-2">
+    <span
+      class="rounded-md bg-white p-1 shadow-md cursor-pointer hover:bg-slate-400"
+      >Task 1</span
+    >
+    <span
+      class="rounded-md bg-white p-1 shadow-md cursor-pointer hover:bg-slate-400"
+      >Task 2</span
+    >
+    <span
+      class="rounded-md bg-white p-1 shadow-md cursor-pointer hover:bg-slate-400"
+      >Task 3</span
+    >
+  </div>
+</div>
+<div class="rounded-md mx-3 bg-slate-200 p-2 shadow-md">
+  <h3 class="mb-2 font-bold">Done</h3>
+  <div class="flex flex-col space-y-2">
+    <span
+      class="rounded-md bg-white p-1 shadow-md cursor-pointer hover:bg-slate-400"
+      >Task 1</span
+    >
+    <span
+      class="rounded-md bg-white p-1 shadow-md cursor-pointer hover:bg-slate-400"
+      >Task 2</span
+    >
+    <span
+      class="rounded-md bg-white p-1 shadow-md cursor-pointer hover:bg-slate-400"
+      >Task 3</span
+    >
+  </div>
+</div>

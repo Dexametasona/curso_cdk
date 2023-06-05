@@ -1,22 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PagesModule } from './pages/pages.module';
 import { WebsiteLayoutComponent } from './website-layout/website-layout.component';
 import { WebsiteRoutingModule } from './website-routing.module';
-
+import { LoginComponent } from './login/login.component';
+import { CompsModule } from './comps/comps.module';
 
 
 @NgModule({
   declarations: [
-    WebsiteLayoutComponent
+    WebsiteLayoutComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
-    PagesModule,
-    WebsiteRoutingModule
+    WebsiteRoutingModule,
+    CompsModule
   ],
-  exports:[
-    WebsiteLayoutComponent
-  ]
+
 })
 export class WebsiteModule { }

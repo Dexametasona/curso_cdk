@@ -1,0 +1,85 @@
+<nav class="px-4">
+  <!-- ---------------------------------------------------navbar principal -->
+  <ul class="pt-8 font-bold space-y-3">
+    <li
+      routerLinkActive="bg-blue-200"
+      class="hover:bg-blue-200 h-10 rounded-md"
+    >
+      <a class="flex items-center h-full w-full pl-4" routerLink="home"
+        ><fa-icon class="mr-2" [icon]="faSquare"></fa-icon>Home</a
+      >
+    </li>
+    <li
+      routerLinkActive="bg-blue-200"
+      class="hover:bg-blue-200 h-10 rounded-md"
+    >
+      <a class="flex items-center h-full w-full pl-4" routerLink="boards"
+        ><fa-icon class="mr-2" [icon]="faHouse"></fa-icon>Boards</a
+      >
+    </li>
+    <li
+      routerLinkActive="bg-blue-200"
+      class="hover:bg-blue-200 h-10 rounded-md"
+    >
+      <a class="flex items-center h-full w-full pl-4" routerLink="template"
+        ><fa-icon class="mr-2" [icon]="faSquareH"></fa-icon>Templates</a
+      >
+    </li>
+  </ul>
+  <!-- ----------------------------------------------------------------------------navacordeon -->
+  <cdk-accordion>
+    <cdk-accordion-item
+      #desplegable="cdkAccordionItem"
+      role="button"
+      tabindex="0"
+      [attr.id]="'accordion-item-1'"
+      [attr.aria-expanded]="desplegable.expanded"
+      [attr.aria-controls]="'accordion-body-1'"
+    >
+      <div
+        (click)="desplegable.toggle()"
+        class="flex justify-between select-none py-1 px-2 font-medium transition-all duration-700 ease-in-out"
+        [ngClass]="desplegable.expanded ? 'bg-gray-200 rounded' : ''"
+      >
+        <span>My workspace</span>
+        <fa-icon
+          [icon]="faDown"
+          class="transition-all duration-500 ease-in-out"
+          [ngClass]="desplegable.expanded ? 'rotate-180' : ''"
+        ></fa-icon>
+      </div>
+      <ul
+        id="list"
+        class="pl-6 overflow-hidden transition-all ease-in duration-500"
+        [ngClass]="desplegable.expanded ? 'max-h-full' : 'max-h-0'"
+      >
+        <cdk-accordion>
+          <cdk-accordion-item
+            #accordionChild="cdkAccordionItem"
+            role="button"
+            tabindex="1"
+            [attr.id]="'accordion-item-2'"
+            [attr.aria-expanded]="accordionChild.expanded"
+            [attr.aria-controls]="'accordion-body-2'"
+            *ngFor="let items of listItem"
+          >
+            <li (click)="accordionChild.toggle()" class="hover:bg-slate-100">
+              <a>{{ items }}</a>
+              <ul
+                class="pl-5 overflow-hidden"
+                [ngClass]="accordionChild.expanded ? 'max-h-full' : 'max-h-0'"
+              >
+                <li>
+                  <a>items-{{ items }}</a>
+                </li>
+                <li>
+                  <a>items-{{ items }}</a>
+                </li>
+              </ul>
+            </li>
+          </cdk-accordion-item>
+        </cdk-accordion>
+      </ul>
+    </cdk-accordion-item>
+  </cdk-accordion>
+</nav>
